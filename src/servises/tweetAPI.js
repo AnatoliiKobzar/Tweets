@@ -4,9 +4,11 @@ const agent = axios.create({
   baseURL: 'https://6442503433997d3ef90d0025.mockapi.io/api/v1/',
 });
 
-export async function getTweets(page = 1) {
+export async function getFilteredTweets(filter, page = 1) {
   try {
-    const response = await agent.get(`users?page=${page}&limit=3`);
+    const response = await agent.get(
+      `users?page=${page}&limit=3&filter=${filter}`
+    );
     return response.data;
   } catch (error) {
     console.error(error);
