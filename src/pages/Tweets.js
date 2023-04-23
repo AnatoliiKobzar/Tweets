@@ -12,14 +12,13 @@ const Tweets = () => {
   };
 
   return (
-    <div>
+    <main>
       <Wrap>
         <Link to="/">Go Back</Link>
         <Filter filter={filter} handleChange={handleChange} />
       </Wrap>
-      <h1 style={{ textAlign: 'center' }}>Tweets!</h1>
       <TweetsList filter={filter} />
-    </div>
+    </main>
   );
 };
 

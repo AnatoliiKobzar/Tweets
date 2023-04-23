@@ -2,16 +2,19 @@ import { useState, useEffect } from 'react';
 import { getFilteredTweets } from 'servises/tweetAPI';
 import { Tweet } from 'components/Tweet/Tweet';
 import { BtnLoadMore, List, ListWrap } from './TweetsList.styled';
+import error from '../../images/error.png';
 
 export const TweetsList = ({ filter }) => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const [isShowButton, setIsShowButton] = useState(false);
   const [currentFilter, setCurrentFilter] = useState(filter);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setUsers([]);
     setPage(1);
+    setLoading(true);
 
     getFilteredTweets(filter)
       .then(user => {
@@ -22,7 +25,8 @@ export const TweetsList = ({ filter }) => {
         }
         setIsShowButton(true);
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log(error))
+      .finally(() => setLoading(false));
   }, [filter]);
 
   useEffect(() => {
@@ -46,17 +50,24 @@ export const TweetsList = ({ filter }) => {
   };
 
   return (
-    <ListWrap>
-      <List className="ImageGallery">
-        {users.map(user => {
-          return <Tweet key={user.id} item={user} />;
-        })}
-      </List>
-      {isShowButton && (
-        <BtnLoadMore type="button" onClick={loadMore}>
-          Load more
-        </BtnLoadMore>
+    <>
+      {!loading ? (
+        <ListWrap>
+          <List className="ImageGallery">
+            {users.map(user => {
+              return <Tweet key={user.id} item={user} />;
+            })}
+          </List>
+          {users.length === 0 && <img src={error} alt="error" width={400} />}
+          {isShowButton && (
+            <BtnLoadMore type="button" onClick={loadMore}>
+              Load more
+            </BtnLoadMore>
+          )}
+        </ListWrap>
+      ) : (
+        <h2 style={{ textAlign: 'center' }}>Loading...</h2>
       )}
-    </ListWrap>
+    </>
   );
 };

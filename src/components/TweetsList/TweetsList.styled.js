@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ListWrap = styled.div`
+export const ListWrap = styled.section`
   display: flex;
   gap: 16px;
   flex-direction: column;
@@ -10,7 +10,8 @@ export const ListWrap = styled.div`
 export const List = styled.ul`
   display: flex;
   gap: 16px;
-  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 `;
 
 export const BtnLoadMore = styled.button`
@@ -27,9 +28,10 @@ export const BtnLoadMore = styled.button`
   border: 2px solid #5736a3;
   cursor: pointer;
 
-  transition: box-shadow 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 
   &:hover {
-    box-shadow: 0 0 10px 0 #5736a3 inset, 0 0 10px 4px #5736a3;
+    transform: translateY(1px);
+    box-shadow: 0 0 20px 0 #5736a3;
   }
 `;

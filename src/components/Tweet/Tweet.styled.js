@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrap = styled.div`
+export const Wrap = styled.li`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17,6 +17,15 @@ export const Wrap = styled.div`
   );
   box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
   border-radius: 20px;
+
+  transition: all 200ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 10px 20px 10px,
+      rgba(0, 0, 0, 0.3) 0px 10px 7px -2px;
+    transform: scale(1.03);
+  }
 `;
 
 export const LogoImg = styled.img`

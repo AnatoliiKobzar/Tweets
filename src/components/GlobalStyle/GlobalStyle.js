@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(90deg, #68d8a8,#47ada1,#478288);
+  background: linear-gradient(270deg, #68d8a8,#47ada1,#478288);
   
 }
 code {

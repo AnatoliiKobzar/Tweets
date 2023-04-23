@@ -7,7 +7,7 @@ export const Link = styled(NavLink)`
   font-weight: 600;
   font-size: 16px;
   line-height: calc(24 / 16);
-  color: rgba(255, 255, 255, 1);
+  color: #dedeffff;
   background-color: transparent;
   border: 2px solid transparent;
   border-radius: 8px;
