@@ -16,8 +16,7 @@ of subscribers does not reset to its original value.
 
 Additional task completed:
 
-Routing created using React Router.
-
-Added filtering using Dropdown.
+ - Routing created using React Router.
+ - Added filtering using Dropdown.
 
 Pagination and filtration made on the backend.
